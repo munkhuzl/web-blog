@@ -1,5 +1,6 @@
 "use client";
-export function Footer() {
+
+const Footer = () => {
   return (
     <footer class=" dark:bg-gray-700  bg-gray-100 justify-around ">
       <div class="mx-auto w-full max-w-screen-xl ">
@@ -133,7 +134,7 @@ export function Footer() {
             © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
             Reserved.{" "}
           </span>
-          <ul class="md:flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 hidden md:block">
+          <ul class="md:flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 hidden">
             <li>
               <a href="#" class="hover:underline me-4 md:me-6">
                 Terms of use{" "}
@@ -154,4 +155,6 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

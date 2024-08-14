@@ -1,5 +1,3 @@
-
-
 "use client";
 import { Image } from "next/image";
 import { useState } from "react";
@@ -7,8 +5,7 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 
-
-export function Navbar() {
+const Navbar = () => {
   const [open, setOpen] = useState();
   function openMenu() {
     setOpen(true);
@@ -56,4 +53,6 @@ export function Navbar() {
       </span>
     </div>
   );
-}
+};
+
+export default Navbar;

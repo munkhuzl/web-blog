@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-export default function Trending() {
+
+const Trending = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     fetch("https://dev.to/api/articles?username=vyan")
@@ -38,4 +39,6 @@ export default function Trending() {
       </div>
     </div>
   );
-}
+};
+
+export default Trending;

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const pageSize = 6;
 
-export default function Allblog() {
+const Allblog = () => {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [ended, setEnded] = useState(false);
@@ -45,4 +45,6 @@ export default function Allblog() {
       }
     </div>
   );
-}
+};
+
+export default Allblog;

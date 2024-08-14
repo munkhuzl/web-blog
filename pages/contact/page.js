@@ -2,10 +2,10 @@
 
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
-export default function Contact() {
+
+const Contact = () => {
   return (
     <div>
-      <Navbar />
       <div className="container mx-auto w-[645px] h-[895px] p-[100] py-16 ">
         <h1 className="text-black text-start text-2xl font-bold mb-2">
           {" "}
@@ -87,7 +87,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <Footer />
+     
     </div>
   );
-}
+};
+
+export default Contact;
