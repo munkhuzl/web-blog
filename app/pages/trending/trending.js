@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Trending = () => {
+export default function Trending(){
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     fetch("https://dev.to/api/articles?username=vyan")
@@ -30,9 +30,9 @@ const Trending = () => {
               <div className="badge badge-primary text-blue absolute">
                 {item.tag_list[0]}
               </div>
-              {/* <Link href={item.url} target="_blank" className="absolute mt-10">
+              <Link href={item.url} target="_blank" className="absolute mt-10">
                 {item.title}
-              </Link> */}
+              </Link>
             </div>
           </div>
         ))}
@@ -41,4 +41,3 @@ const Trending = () => {
   );
 };
 
-export default Trending;

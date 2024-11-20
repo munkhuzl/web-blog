@@ -1,9 +1,8 @@
 "use client";
 
-import { Navbar } from "@/components/navbar";
-import Footer from "@/components/footer";
 
-const Contact = () => {
+
+export default function Contact() {
   return (
     <div>
       <div className="container mx-auto w-[645px] h-[895px] p-[100] py-16 ">
@@ -92,4 +91,3 @@ const Contact = () => {
   );
 };
 
-export default Contact;

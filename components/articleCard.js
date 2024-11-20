@@ -1,30 +1,28 @@
-import Link from "next/link";
+"use client"
 import Image from "next/image";
+import Link from "next/link";
+import dayjs from "dayjs";
+import relativeTime from 'dayjs/plugin/relativeTime'
 
-const ArticleCard = (article) => {
-  return (
-    <div className="shadow-lg card bg-base-100" key={article.id}>
-      <div className="card-body">
-        <div className="flex gap-2">
-          {article.tag_list.map((tag) => (
-            <div className="badge badge-primary">{tag}</div>
-          ))}
-        </div>
-        <Image src={article.social_iamge} width={500} height={500} />
-        <div className="badge badge-primary text-blue">
-          {article.tag_list[0]}
-        </div>
-        <Link href={article.url} target="_blank">
-          {article.title}
-        </Link>
-        <div>
-          <Image src={article.user.profile_image_90} width={50} height={50} />
-          <div>{article.user.name}</div>
-          <div>{article.published_at}</div>
-        </div>
-      </div>
-    </div>
-  );
-};
+dayjs.extend(relativeTime);
 
-export default ArticleCard;
+export default function ArticleCard({ article }) {
+    return (
+        <div kesy={article.id} className="card border border-border-card-color rounded-xl p-4 gap-4 font-sans">
+            <Image src={article.social_image} width={360} height={240} className="w-full rounded-md aspect-video object-cover bg-slate-600" alt="Image" />
+            <Link href={article.path} className="card-body">
+           <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-4">
+                  <div className='flex gap-2 flex-wrap'>
+                        {article.tag_list.map((tag)=> 
+                          <div className="badge text-badge-text  bg-slate-50 py-2 px-3 rounded-md">{tag}</div>
+                        )}
+                    </div>
+                  <div className="text-desc-color text-2xl font-semibold text-start">{article.description}</div>
+              </div>
+                <div className="text-start">{dayjs(article.published_at).locale('mn').fromNow()}</div>
+           </div>
+            </Link>
+        </div>
+    )
+}

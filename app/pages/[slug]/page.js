@@ -1,11 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 
 const pageSize = 6;
 
-const Allblog = () => {
+export default function Allblog(){
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [ended, setEnded] = useState(false);
@@ -47,4 +45,4 @@ const Allblog = () => {
   );
 };
 
-export default Allblog;
+

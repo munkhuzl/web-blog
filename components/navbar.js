@@ -5,7 +5,8 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 
-const Navbar = () => {
+
+export default function  Navbar(){
   const [open, setOpen] = useState();
   function openMenu() {
     setOpen(true);
@@ -21,19 +22,19 @@ const Navbar = () => {
         // flex flex-col items-center  */}
 
         <Link
-          href={"/article"}
+          href={"/app/article"}
           className="hidden lg:block text-center text-gray-600"
         >
           Home
         </Link>
         <Link
-          href={"/Pages/page"}
+          href={"/app/trending"}
           className="hidden lg:block text-center text-gray-600"
         >
-          Blog
+          Trending
         </Link>
         <Link
-          href={"/contact"}
+          href={"/app/contact"}
           className="hidden lg:block text-center text-gray-600"
         >
           Contact
@@ -54,5 +55,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;

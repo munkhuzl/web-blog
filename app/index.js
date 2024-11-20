@@ -2,13 +2,13 @@
 import ArticleCard from "@/components/articleCard";
 import { useEffect, useState } from "react";
 
-const Index = () => {
+export default function Home () {
   const [selectedCategory, setSelectedCategory] = useState();
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(0);
   const [ended, setEnded] = useState(false);
-
+  
   const tags = [
     { value: "beginners", name: "Design" },
     { value: "frontend", name: "Travel" },
@@ -17,6 +17,11 @@ const Index = () => {
     { value: "express", name: "Branding" },
     { value: "all", name: "Design" },
   ];
+  useEffect(() => {
+    fetch(`https://dev.to/api/articles?username=vyan&per_page=9`).then((response) => {
+        return response.json()
+    }).then((data) => { setArtricles(data) });
+}, []);
 
   function loadMore() {
     async function loadInitialArticles() {
@@ -29,7 +34,7 @@ const Index = () => {
       setPage(1);
       setLoading(false);
     }
-
+  }
   async function loadNextArticles() {
     setLoading(true);
     const nextPage = page + 1;
@@ -49,7 +54,6 @@ const Index = () => {
 
   return (
     <div>
-      hi
       <div>All Blog Post</div>
       <div className="container mx-auto">
         <div className="grid gap-4 md:grid lg:grid-cols-3">
@@ -64,13 +68,14 @@ const Index = () => {
               className="btn btn-lg btn-accent"
               onClick={loadNextArticles}
             >
-              Load more
             </button>
           </div>
+          
         )}
+        <button>{loadMore}</button>
       </div>
     </div>
   );
 };
-}
-export default Index;
+
+
