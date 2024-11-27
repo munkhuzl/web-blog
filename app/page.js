@@ -20,7 +20,7 @@ export default function Home () {
   useEffect(() => {
     fetch(`https://dev.to/api/articles?username=vyan&per_page=9`).then((response) => {
         return response.json()
-    }).then((data) => { setArtricles(data) });
+    }).then((data) => { setArticles(data) });
 }, []);
 
   function loadMore() {
@@ -56,11 +56,11 @@ export default function Home () {
     <div>
       <div>All Blog Post</div>
       <div className="container mx-auto">
+              {articles.map((item) => (
         <div className="grid gap-4 md:grid lg:grid-cols-3">
-          {articles.map((item) => (
             <ArticleCard key={item.id} article={item} />
-          ))}
         </div>
+               ))}
         {!ended && (
           <div className="py-16 text-center">
             <button
